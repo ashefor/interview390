@@ -25,10 +25,12 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/_redirects"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/theme.less",
+              "src/styles/main.scss"
             ],
             "scripts": []
           },
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "interview-app"
+    }
+  },
+  "defaultProject": "interview-app",
+  "cli": {
+    "analytics": false
+  }
 }

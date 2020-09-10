@@ -1,0 +1,113 @@
+@import '../../../styles/abstract/variables';
+
+.usercard {
+  margin: 1rem 0;
+
+  &--divide {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-top: .1rem solid $light-background;
+
+  }
+
+  &:last-child {
+    .usercard--divide {
+      &:last-of-type {
+        display: none;
+      }
+    }
+  }
+
+  &__details {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 1rem;
+    // place-items: center;
+    cursor: pointer;
+
+    &:hover {
+      & .usercard__details-action {
+        // visibility: visible;
+      }
+    }
+
+    &-image {
+      img {
+        width: 100%;
+        height: 6rem;
+        // box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+      }
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: nowrap;
+
+      &-title {
+        color: $color-ash;
+        font-size: $font-size-regular;
+        text-transform: capitalize;
+        margin-bottom: .75rem;
+      }
+
+      &-balance {
+        font-size: $font-size-medium;
+        font-weight: bolder;
+      }
+    }
+
+    &-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // visibility: hidden;
+
+      &-btn {
+        color: $color-ash;
+        // margin: 0 .5rem;
+      }
+    }
+  }
+
+  &__info {
+    padding-bottom: .5rem;
+
+    &-text {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      column-gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      &-title {
+        font-size: $font-size-regular;
+        text-transform: capitalize;
+        font-weight: bolder;
+      }
+
+      &-details {
+        font-size: $font-size-regular;
+        text-transform: capitalize;
+        color: $color-ash;
+        text-align: right;
+      }
+    }
+
+    &-header {
+      &-title {
+        font-size: $font-size-medium;
+        text-transform: capitalize;
+      }
+
+      &-details {
+        font-size: $font-size-regular;
+        text-transform: capitalize;
+        color: $color-ash;
+
+      }
+    }
+  }
+
+
+}

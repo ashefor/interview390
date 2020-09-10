@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card__body">
+  <ng-container *ngIf="(error$ |async) as error; else showContent">
+    <div class="text--center text--regular text--capital text--danger">
+      <i class="fas fa-times"></i>
+      <p class="text--spaceup">{{error.message}}</p>
+    </div>
+  </ng-container>
+  <ng-template #showContent>
+    <ng-container *ngIf="(allTransactions$ | async) as allTransaction; else loadingTransaction">
+      <ng-container *ngIf="allTransaction.length; else noTransaction">
+       <ul class="transactions">
+         <li class="transactions__list" *ngFor="let transaction of allTransaction">
+           <span class="transactions__list-icon">
+             <i [class]="transaction.iconSrc"></i>
+           </span>
+           <div class="transactions__list-text">
+             <span class="transactions__list-text--large">
+               {{transaction.description |titlecase}}
+             </span>
+             <span class="transactions__list-text--faint">
+               {{transaction.transaction_date |date}}
+             </span>
+           </div>
+           <span class="transactions__list-currency">
+             {{transaction.price | currency: '$' }}
+           </span>
+         </li>
+       </ul>
+      </ng-container>
+      <ng-template #noTransaction>
+       <div class="text--center text--regular text--capital">
+         <i class="fas fa-times"></i>
+         <p class="text--spaceup">No transactions</p>
+       </div>
+      </ng-template>
+     </ng-container>
+     <ng-template #loadingTransaction>
+       <div class="text--center text--regular text--capital">
+         <i class="fas fa-spinner fa-spin"></i>
+         <p class="text--spaceup">Loading transactions</p>
+       </div>
+     </ng-template>
+  </ng-template>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="card">
+  <div class="card__body">
+   <ng-container *ngIf="(error$ |async) as error; else showContent">
+    <div class="text--center text--regular text--capital text--danger">
+      <i class="fas fa-times"></i>
+      <p class="text--spaceup">{{error.message}}</p>
+    </div>
+   </ng-container>
+   <ng-template #showContent>
+    <ng-container *ngIf="(paymentCards$ | async) as paymentCards; else loadingCards">
+      <ng-container *ngIf="paymentCards.length; else noCards">
+        <div class="usercard" *ngFor="let card of paymentCards; let i = index">
+          <div class="usercard__details">
+            <div class="usercard__details-image">
+              <img src="assets/images/credit-card.png" alt="card">
+            </div>
+            <div class="usercard__details-text">
+              <span class="usercard__details-text-title">
+                card balance
+              </span>
+              <span class="usercard__details-text-balance">
+                {{card.balance | currency: '$'}}
+              </span>
+            </div>
+            <div class="usercard__details-action">
+              <button class="button usercard__details-action-btn">
+                <i class="fas fa-bell"></i>
+              </button>
+              <button class="button usercard__details-action-btn" (click)="showMoreDetails(i)">
+                <i class="fas fa-ellipsis-h"></i>
+              </button>
+            </div>
+          </div>
+          <!-- <hr class="usercard--divide"> -->
+          <div class="usercard__info" [hidden]="showMoreInfo[i].show">
+            <hr class="usercard--divide">
+            <div class="usercard__info-text usercard__info-header">
+              <span class="usercard__info-header-title">
+                infomation
+              </span>
+              <span class="usercard__info-header-details text--right">
+                more details
+              </span>
+            </div>
+            <div class="usercard__info-text usercard__info-body">
+              <span class="usercard__info-text-title">
+                status
+              </span>
+              <span class="usercard__info-text-details">
+                {{card.active ? 'active' : 'inactive'}}
+              </span>
+            </div>
+            <div class="usercard__info-text usercard__info-body">
+              <span class="usercard__info-text-title">
+                name card
+              </span>
+              <span class="usercard__info-text-details">
+                {{card.account_name}}
+              </span>
+            </div>
+            <div class="usercard__info-text usercard__info-body">
+              <span class="usercard__info-text-title">
+                type of card
+              </span>
+              <span class="usercard__info-text-details">
+               <img [src]="card.imgSrc" [alt]="card.type">
+               {{card.type}}
+              </span>
+            </div>
+            <hr class="usercard--divide">
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #noCards>
+        <div class="text--center text--regular">
+          <i class="fas fa-times"></i>
+          <p class="text--spaceup">No Cards</p>
+        </div>
+      </ng-template>
+    </ng-container>
+    <ng-template #loadingCards>
+      <div class="text--center text--regular">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p class="text--spaceup">Loading Cards</p>
+      </div>
+    </ng-template>
+   </ng-template>
+  </div>
+</div>

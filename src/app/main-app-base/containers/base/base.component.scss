@@ -1,0 +1,27 @@
+@import '../../../../styles/abstract/variables';
+
+.wrapper{
+    &__base{
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: $app-background;
+
+        &-bottom{
+            // display: grid;
+            // grid-template-columns: minmax(100px, 5%) 1fr;
+            main{
+                width: calc(100% - 6rem);
+                // width: 95%;
+                margin-left: auto;
+                padding: 10rem 2rem 2rem 2rem;
+                @media all and (min-width: 481px) {
+                    padding: 10rem 4.5rem 4.5rem 4.5rem;
+                }
+                @media all and (min-width: 992px) {
+                    padding: 10rem 7.5rem 2rem 7.5rem;
+                }
+            }
+        }
+    }
+}

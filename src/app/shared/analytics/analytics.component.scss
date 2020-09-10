@@ -1,0 +1,36 @@
+@import '../../../styles/abstract/variables';
+
+.analytics{
+    &__selects{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        &-filter {
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: $font-size-regular;
+            color: $color-ash;
+            text-transform: capitalize;
+        }
+
+        .select__days{
+            @media all and (max-width: 767px) {
+                width: 100%;
+            }
+            width: 12.5rem;
+        }
+    }
+
+    &--graph{
+        width: 100%;
+        height: 25rem;
+        margin-top: 1rem;
+
+        canvas{
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+}

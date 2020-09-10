@@ -1,0 +1,46 @@
+<nav class="nav">
+    <div class="nav__left">
+        <div class="nav__left-logo">
+            <span class="nav__left-logo-icon">
+                <i class="fas fa-university"></i>
+            </span>
+            <div class="nav__left-logo-text">
+                <span class="nav__left-logo-text--large">
+                    gringo
+                </span>
+                <span class="nav__left-logo-text--small">
+                    bank plus
+                </span>
+            </div>
+        </div>
+        <div class="nav__search">
+            <app-search-bar [placeholder]="'Search'"></app-search-bar>
+        </div>
+    </div>
+    <ng-container *ngIf="(user$ |async) as user">
+        <div class="nav__right">
+            <!-- <button class="button button--wide button--primary text--capital">deposit</button> -->
+            <app-button [text]="'deposit'" [className]="'button button--wide button--noborder button--primary text--capital'"></app-button>
+            <div class="nav__right-separator">
+    
+            </div>
+            <span class="nav__right-icon ">
+                <i class="fas fa-bell"></i>
+            </span>
+            <div class="nav__right-separator">
+    
+            </div>
+            <div class="nav__right-avatar">
+                <app-avatar [src]="user.image" class="nav__right-avatar-image"></app-avatar>
+                <div class="nav__right-avatar-text">
+                    <span class="nav__right-avatar-text--large">
+                        {{user.first_name}} {{user.last_name}}
+                    </span>
+                    <span class="nav__right-avatar-text--small">
+                        business profile
+                    </span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</nav>

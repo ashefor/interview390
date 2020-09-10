@@ -1,0 +1,111 @@
+<section class="page">
+  <h4 class="page__header-title">dashboard</h4>
+  <h5 class="page__header-subtitle">Welcome to Gringo Bank Plus</h5>
+
+  <div class="page__grid">
+    <div class="page__grid--left">
+      <section class="page__section">
+        <div class="page__section-title">
+          <span class="page__section-title-text">
+            my cards
+          </span>
+          <button class="button">
+            <span class="page__section-title-icon">
+              <i class="fas fa-cog"></i>
+            </span>
+          </button>
+        </div>
+        <div class="page__section-card">
+          <app-card-info [paymentCards$]="allPaymentCards$" (toggleMoreInfo)="toggleMoreInfo($event)"
+            [showMoreInfo]="booleanArray" [error$]="paymentCardError$"></app-card-info>
+        </div>
+      </section>
+      <section class="page__section">
+        <div class="page__section-title">
+          <span class="page__section-title-text">
+            transactions
+          </span>
+          <button class="button">
+            <span class="page__section-title-icon">
+              <i class="fas fa-ellipsis-h"></i>
+            </span>
+          </button>
+        </div>
+        <div class="page__section-card">
+          <app-transaction [allTransactions$]="allTransactions$" [error$]="transactionsError$"></app-transaction>
+        </div>
+      </section>
+    </div>
+    <div class="page__grid--right">
+      <div class="page__grid--right-top--left">
+        <div class="page__grid--right-top--left__gridleft">
+          <section class="page__section">
+            <div class="page__section-title">
+              <span class="page__section-title-text">
+                send money to mobile phone
+              </span>
+              <button class="button">
+                <span class="page__section-title-icon">
+                  <i class="fas fa-ellipsis-h"></i>
+                </span>
+              </button>
+            </div>
+            <div class="page__section-card">
+              <app-country-input [countries]="countries" [placeholder]="'00 000'"></app-country-input>
+            </div>
+          </section>
+          <section class="page__section">
+            <div class="page__section-title">
+              <span class="page__section-title-text">
+                money box
+              </span>
+              <button class="button">
+                <span class="page__section-title-icon">
+                  <i class="fas fa-ellipsis-h"></i>
+                </span>
+              </button>
+            </div>
+            <div class="page__section-card">
+              <app-progress></app-progress>
+            </div>
+          </section>
+        </div>
+        <div class="page__grid--right-top--left__gridright">
+          <section class="page__section">
+            <div class="page__section-title">
+              <span class="page__section-title-text">
+                send money to
+              </span>
+              <button class="button">
+                <span class="page__section-title-icon">
+                  <i class="fas fa-ellipsis-h"></i>
+                </span>
+              </button>
+            </div>
+            <div class="page__section-card">
+              <app-card-select [accounts]="accounts" [currency]="'USD'" [placeholder]="'00 000'"
+                [allContacts$]="allContacts$" [error$]="contactError$"></app-card-select>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="page__grid--right-bottom--right">
+        <section class="page__section">
+          <div class="page__section-title">
+            <span class="page__section-title-text">
+              analytics
+            </span>
+            <button class="button">
+              <span class="page__section-title-icon">
+                <i class="fas fa-ellipsis-h"></i>
+              </span>
+            </button>
+          </div>
+          <div class="page__section-card">
+            <app-analytics [allAnalytics$]="allAnalytics$" [error$]="analyticsError$"></app-analytics>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

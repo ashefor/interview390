@@ -1,0 +1,108 @@
+@import '../../../../styles/abstract/variables';
+
+.page {
+  &__header {
+    &-title {
+      font-size: $font-size-medium;
+      margin-bottom: .5rem;
+      text-transform: capitalize;
+    }
+
+    &-subtitle {
+      font-size: $font-size-regular;
+      color: $color-ash;
+    }
+  }
+
+  &__grid {
+    @media all and (max-width: 767px) {
+      display: block;
+  }
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 2rem;
+
+   
+
+    &--right {
+      @media all and (max-width: 767px) {
+        display: block;
+    }
+      display: flex;
+      flex: 1 1 65%;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &-top {
+          
+        &--left {
+          @media all and (max-width: 767px) {
+            display: block;
+        }
+            display: flex;
+            flex-wrap: wrap;
+          column-gap: 2rem;
+
+          &__gridleft{
+            @media all and (max-width: 767px) {
+              display: block;
+          }
+            display: flex;
+            flex-flow: column;
+            flex: 1 1 auto;
+            justify-content: space-between;
+          }
+
+          &__gridright{
+            flex: 1 1 30%;
+          }
+        }
+      }
+    }
+
+    &--left {
+      @media all and (max-width: 767px) {
+        display: block;
+    }
+      display: flex;
+      flex: 1 1 30%;
+      flex-direction: column;
+      // justify-content: space-between;
+    }
+  }
+
+  &__section {
+    margin-top: 2rem;
+
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      font-weight: bolder;
+
+      span {
+        display: block;
+      }
+
+      &-text {
+        text-transform: capitalize;
+        font-size: $font-size-medium;
+      }
+
+      &-icon {
+        color: $color-ash;
+        // font-size: $font-size-small;
+      }
+    }
+
+    &-card {
+      &-divide {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        border-top: .1rem solid $light-background;
+      }
+    }
+  }
+}

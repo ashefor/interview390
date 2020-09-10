@@ -1,0 +1,26 @@
+<ng-container >
+    <div class="card">
+        <div class="card__body">
+            <div class="input">
+                <div class="input__dropdown">
+                    <span class="input__icon dropdown input__prefix" (click)="showDropDown()">
+                        <img [src]="selectedCountry.src" alt="" class="dropdown" srcset="">
+                        <span class="dropdown">{{selectedCountry.zip}}</span>
+                    </span>
+                    <div id="myDropdown" class="input__dropdown-content">
+                        <span class="input__dropdown-content-item" *ngFor="let country of countries" (click)="selectCountry(country)">
+                            <img [src]="country.src" alt="" srcset="">
+                            <span>{{country.zip}}</span>
+                        </span>
+                      </div>
+                </div>
+                <div class="separator"></div>
+                <input type="text" class="input__input" [(ngModel)]="phoneNumber" [placeholder]="placeholder">
+                <app-button [text]="'Send'" [disabled]="!phoneNumber" [className]="'button button--wide button--noborder button--primary text--capital'"></app-button>
+            </div>
+           <div class="card__text">
+            <p class="text--ash text--regular card__text--muted">More than 140 countris listed</p>
+           </div>
+        </div>
+    </div>
+</ng-container>

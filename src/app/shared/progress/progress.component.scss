@@ -1,0 +1,65 @@
+@import '../../../styles/abstract/variables';
+
+.separator{
+    margin-left: 2rem;
+            margin-right: 2rem;
+            border: 0;
+            height: 2rem;
+            border-left: 1px solid rgba(0,0,0,.1);
+}
+.progress {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__details {
+        width: 100%;
+      // display: flex;
+      //     align-items: center;
+      //     justify-content: space-between;
+      &-text {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &--title {
+          font-size: $font-size-regular;
+          color: $color-ash;
+          text-transform: capitalize;
+        }
+      }
+
+      &--bar{
+        background-color: $color-white;
+        border: .1rem solid $light-background;
+        border-radius: 1.5rem;
+        height: 1rem;
+        padding: 0.15rem;
+        margin: 1rem 0;
+
+        &--percent{
+            background-color: $color-yellow;
+            border-radius: 1.5rem;
+            height: 100%;
+        }
+      }
+    }
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+
+    &-btn{
+        color: $color-ash;
+        margin: 0 1rem;
+    }
+  }
+
+  &__text{
+    margin: 1rem 0;
+}
+}

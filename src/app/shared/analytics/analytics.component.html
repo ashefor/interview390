@@ -1,0 +1,62 @@
+<div class="card">
+    <div class="card__body">
+      <ng-container *ngIf="(error$ |async) as error; else showContent">
+        <div class="text--center text--regular text--capital text--danger">
+            <i class="fas fa-times"></i>
+            <p class="text--spaceup">{{error.message}}</p>
+          </div>
+      </ng-container>
+      <ng-template #showContent>
+        <ng-container *ngIf="(allAnalytics$ | async) as allAnalytics; else loadingAnalytics">
+            <ng-container *ngIf="allAnalytics.length; else noAnalytics">
+             <div class="analytics">
+                 <div class="analytics__selects">
+                  <nz-select class="select__days" nzPlaceHolder="Select days" nzSize="large" [(ngModel)]="selectedDay" (ngModelChange)="changeDays($event)">
+                      <nz-option nzCustomContent nzLabel="5 days" [nzValue]="5">
+                        5 days</nz-option>
+                      <nz-option nzCustomContent nzLabel="10 days" [nzValue]="10">
+                        10 days</nz-option>
+                      <nz-option nzCustomContent nzLabel="30 days" [nzValue]="30">
+                        30 days </nz-option>
+                    </nz-select>
+                    <div>
+                     <span class="analytics__selects-filter">
+                         filter
+                     </span>
+                     <nz-select nzPlaceHolder="Select Date" class="select__days" nzSize="large" (ngModel)="selectedDate">
+                      <nz-option nzCustomContent nzLabel="5 days" nzValue="5">
+                        5 days</nz-option>
+                      <nz-option nzCustomContent nzLabel="10 days" nzValue="10">
+                        10 days</nz-option>
+                      <nz-option nzCustomContent nzLabel="30 days" nzValue="30">
+                        30 days </nz-option>
+                    </nz-select>
+                    </div>
+                 </div>
+                 <div class="analytics--graph" *ngIf="analyticsDate">
+                  <canvas baseChart
+                              [datasets]="lineChartData"
+                              [labels]="lineChartLabels"
+                              [options]="lineChartOptions"
+                              [colors]="lineChartColors"
+                              [legend]="lineChartLegend"
+                              [chartType]="lineChartType"></canvas>
+                  </div>
+                </div>
+            </ng-container>
+            <ng-template #noAnalytics>
+             <div class="text--center text--regular text--capital">
+                 <i class="fas fa-times"></i>
+                 <p class="text--spaceup">No data</p>
+               </div>
+            </ng-template>
+           </ng-container>
+           <ng-template #loadingAnalytics>
+             <div class="text--center text--regular text--capital">
+                 <i class="fas fa-spinner fa-spin"></i>
+                 <p class="text--spaceup">Loading data</p>
+               </div>
+           </ng-template>
+      </ng-template>
+    </div>
+  </div>

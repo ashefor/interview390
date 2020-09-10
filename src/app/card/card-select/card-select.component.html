@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card__body">
+        <div class="contact">
+      <ng-container *ngIf="(error$ |async) as error; else showContent">
+        <div class="text--center text--regular text--capital text--danger">
+            <i class="fas fa-times"></i>
+            <p class="text--spaceup">{{error.message}}</p>
+          </div>
+      </ng-container>
+      <ng-template #showContent>
+        <ng-container *ngIf="(allContacts$ |async) as allContacts; else loadingContacts">
+            <ng-container *ngIf="allContacts.length; else noContacts">
+                 <div class="contact__recent">
+                     <app-avatar *ngFor="let contact of allContacts.slice(0,5)" [src]="contact.image" [alt]="'user'"></app-avatar>
+                 </div>
+                 <p class="text--capital text--ash text--regular"> open contacts</p>
+            </ng-container>
+            <ng-template #noContacts>
+             <div class="text--center text--regular text--capital">
+                 <i class="fas fa-times"></i>
+                 <p class="text--spaceup">No contacts</p>
+               </div>
+            </ng-template>
+            </ng-container>
+            <ng-template #loadingContacts>
+             <div class="text--center text--regular text--capital">
+                 <i class="fas fa-spinner fa-spin"></i>
+                 <p class="text--spaceup">Loading contacts</p>
+               </div>
+            </ng-template>
+      </ng-template>
+       <div>
+        <nz-divider></nz-divider>
+        <div class="contact__account">
+            <nz-select nzPlaceHolder="Select account" nzSize="large" [(ngModel)]="selectedAccount">
+                <nz-option *ngFor="let acct of accounts" nzCustomContent [nzLabel]="acct.acc_no" [nzValue]="acct">
+                    <img [src]="acct.src" alt="" srcset=""> &nbsp; {{acct.acc_no}}</nz-option>
+              </nz-select>
+        </div>
+
+        <div class="amount">
+            <input type="text" name="" id="" class="amount__input" [placeholder]="placeholder">
+            <span class="amount__suffix text--bold">
+                {{currency ? currency : 'YEN'}}
+            </span>
+        </div>
+        <app-button [text]="'send money'" [className]="'button button--wide button--noborder button--primary text--capital '"></app-button>
+       </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,100 @@
+@import '../../../styles/abstract/variables';
+
+.separator{
+    margin-left: 2rem;
+            margin-right: 2rem;
+            border: 0;
+            height: 2rem;
+            border-left: 1px solid rgba(0,0,0,.1);
+}
+
+.card{
+    .input{
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        flex-wrap: wrap;
+        padding: 1rem 0;
+        font-size: $font-size-regular;
+        line-height: 1.5rem;
+        // background-color: $light-background;
+        background-image: none;
+        border-bottom: .1rem solid $light-background;
+        border-radius: .75rem;
+        transition: all .3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: $font-size-regular;
+    
+        // &:hover{
+        //     border-color: #40a9ff;
+        // border-right-width: 1px!important;
+        // }
+    
+        &__dropdown{
+            &-content {
+                display: none;
+                position: absolute;
+                background-color: $color-white;
+                margin-top: .5rem;
+                min-width: 5rem;
+                overflow: auto;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+    
+                &-item{
+                    display: flex;
+                    padding: 1rem;
+                    align-items: center;
+                    cursor: pointer;
+    
+                    &:hover{
+                        background-color: $light-background;
+                    }
+    
+                    img{
+                        margin-right: 1rem;
+                    }
+                }
+    
+                  &--show{
+                      display: block;
+                  }
+                  
+              }
+        }
+        &__prefix{
+            // margin-right: .75rem;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            justify-content: center;
+    
+            img{
+                margin-right: 1rem;
+            }
+        }
+    
+        &__suffix{
+            margin-left: .75rem;
+            flex: none;
+        }
+    
+        &__input{
+            padding: 0;
+            border: none;
+            outline: none;
+            width: 25rem;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            font-size: $font-size-regular;
+        }
+    }
+
+    &__text{
+        margin: 1rem 0;
+    }
+
+
+}

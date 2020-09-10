@@ -1,0 +1,54 @@
+@import '../../../../styles/abstract/variables';
+
+.transactions{
+    list-style: none;
+
+    &__list{
+        display: grid;
+        column-gap: 1rem;
+        grid-template-columns: 10% auto 25%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        line-height: 1.2;
+
+        &-icon{
+            font-size: $font-size-regular;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+            background-color: lighten($color: $color-primary, $amount: 30);
+            border-radius: 1rem;
+        }
+
+        &-text{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            font-weight: bolder;
+
+            span{ 
+                display: block;
+            }
+
+            &--large{
+                font-size: $font-size-regular;
+                text-transform: capitalize;
+                margin-bottom: .5rem;
+            }
+
+            &--faint{
+                font-size: $font-size-semi-small;
+                text-transform: capitalize;
+                color: $color-ash;
+            }
+        }
+
+        &-currency{
+            font-size: $font-size-regular;
+            align-self: center;
+            justify-self: center;
+            font-weight: bolder;
+        }
+    }
+}

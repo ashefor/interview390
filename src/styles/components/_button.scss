@@ -1,0 +1,32 @@
+.button {
+  border-radius: 0.5rem;
+  font-style: normal;
+  font-weight: bold;
+  font-size: $font-size-regular;
+  border: 1px solid rgba(0,0,0,.1);
+  line-height: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  cursor: pointer;
+  background-color: inherit;
+
+  &--wide{
+    width: 100%;
+  }
+
+  &--noborder{
+    border: none !important;
+  }
+  &--primary {
+    background: $color-primary;
+    color: $color-white;
+
+    &[disabled]{
+      background-color: lighten($color: $color-primary, $amount: 30);
+    }
+  }
+
+  
+}

@@ -1,0 +1,48 @@
+@import '../../../styles/abstract/variables';
+
+.searchbar{
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    padding: 1rem 1.5rem;
+    font-size: $font-size-regular;
+    line-height: 1.5rem;
+    background-color: $light-background;
+    background-image: none;
+    border: .1rem solid $light-background;
+    border-radius: .75rem;
+    transition: all .3s;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover{
+        border-color: #40a9ff;
+    border-right-width: 1px!important;
+    }
+
+    &__icon{
+        color: $color-ash;
+        font-size: $font-size-semi-small;
+
+        &-prefix{
+            margin-right: .75rem;
+            flex: none;
+        }
+
+        &-suffix{
+            margin-left: .75rem;
+            flex: none;
+        }
+    }
+
+    &__input{
+        padding: 0;
+        border: none;
+        outline: none;
+        cursor: text;
+        width: 25rem;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        font-size: $font-size-regular;
+    }
+}
